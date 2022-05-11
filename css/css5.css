@@ -1,0 +1,22 @@
+#div1 {
+    font-family: sans-serif;
+    font-style: italic;
+    font-size: x-large;
+}
+
+#div2 {
+    font-family: sans-serif;
+    font-style: oblique;
+    font-size: x-small;
+}
+
+#div3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-size: xx-large;
+}
+
+#div4 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}

@@ -1,0 +1,19 @@
+/* 태그 셀렉터 */
+body {
+    background-color: seashell;
+
+}
+
+#div-id {
+    background-color: aquamarine;
+}
+
+.div-class {
+    background-color: cornflowerblue;
+}
+
+/*name은  css에서 기본식별자로 사용불가*/
+/*name은  css에서 속성식별자를 통해 다양한 스타일을 지정가능*/
+div[name="div-name"] {
+    background-color: brown;
+}

@@ -1,0 +1,28 @@
+h1 {
+    text-align: center;
+    text-decoration-line: overline;
+    text-transform: uppercase;
+    color: green;
+}
+
+h2 {
+    text-align: right;
+    text-decoration-line: line-through;
+    text-transform: uppercase;
+    background-color: lightgrey;
+    color: blue;
+}
+
+/* justify 양쪽정렬 */
+h3 {
+    text-align: justify;
+    text-decoration-line: underline;
+    text-transform: lowercase;
+    text-indent: 50px;
+}
+
+h4 {
+    text-decoration-line: overline underline;
+    text-transform: capitalize;
+    text-indent: 50px;
+}

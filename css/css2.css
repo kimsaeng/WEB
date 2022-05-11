@@ -1,0 +1,40 @@
+/* 태그 셀렉터 */
+div {
+    background-color: plum;
+}
+
+body {
+    background-color: aquamarine;
+}
+
+p {
+    color: blue;
+}
+
+/* class 선택자 */
+.red-text {
+    color: green;
+}
+
+.yellow-text {
+    color: yellow;
+}
+
+.big-size {
+    font-size: 50px;
+}
+
+/* <!-- id 셀렉터 --> */
+#div1 {
+    background-color: white;
+}
+
+.border {
+    border-style: dashed;
+    border-width: 2px;
+}
+
+p.border {
+    border-style: solid;
+    border-width: 2px;
+}
