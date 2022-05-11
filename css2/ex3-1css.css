@@ -1,0 +1,42 @@
+.div1 {
+    border-style: dotted;
+    border-width: 1px;
+}
+
+.div2 {
+    border-style: dashed;
+    border-width: 1px;
+}
+
+.div3 {
+    border-style: solid;
+    border-width: 2px;
+}
+
+.div4 {
+    border-style: double;
+}
+
+.div5 {
+    border-style: groove;
+    border-width: 5px;
+    border-color: rgb(133,165,65);
+}
+
+.div6 {
+    border-style: ridge;
+    border-width: 5px;
+    border-color: rgb(133,165,65);
+}
+
+.div7 {
+    border-style: inset;
+    border-width: 5px;
+    border-color: rgb(133,165,65);
+}
+
+.div8 {
+    border-style: outset;
+    border-width: 5px;
+    border-color: rgb(133,165,65);
+}

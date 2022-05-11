@@ -9,45 +9,86 @@
 </head>
 
 <body>
-    <div>
-        mp4 플레이리스트<br>
-        <video width="33%" controls autoplay muted>
-            <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                type="video/mp4">
-            <source src="mov_bbb.ogg" type="video/ogg">
-            Your browser does not support HTML video.
-        </video>
+    <style>
+        .div1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 300px;
+            height: 100px;
+            background-color: blue;
+            text-align: center;
+        }
 
-        <video width="33%" controls autoplay muted>
-            <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                type="video/mp4">
-            <source src="mov_bbb.ogg" type="video/ogg">
-            Your browser does not support HTML video.
-        </video>
+        .div2 {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 300px;
+            width: 100px;
+            height: 300px;
+            background-color: greenyellow;
+            text-align: center;
+            line-height: 300px;
+        }
 
-        <video width="33%" controls autoplay muted>
-            <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                type="video/mp4">
-            <source src="mov_bbb.ogg" type="video/ogg">
-            Your browser does not support HTML video.
-        </video>
-   
-        유튜브 플레이리스트<br>
-        <iframe width="33%" height="315" src="https://www.youtube.com/embed/_NivvOtb-3g" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+        .div4 {
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 100px;
+            width: 100px;
+            height: 300px;
+            background-color: pink;
+            text-align: center;
+            line-height: 300px;
+        }
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/l2cbj2NzinM" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+        .div3 {
+            display: inline-block;
+            position: absolute;
+            top: 300px;
+            left: 100px;
+            width: 300px;
+            height: 100px;
+            background-color: hotpink;
+            text-align: center;
+            line-height: 100px;
+        }
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/p3YydvGB_gg" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+        .pic {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+
+        .container {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            left: 30px;
+        }
+    </style>
+
+    <div class="container">
+        <div class="div1">1</div>
+        <div class="div2">2</div>
+        <div class="div3">3</div>
+        <div class="div4">4</div>
+        <div class="pic">
+            <img src="http://www.newsfreezone.co.kr/news/photo/202011/277190_272040_1138.jpg" alt="아이유는 아이가 아니에요"
+                width="100%" height="100%">
+        </div>
     </div>
+
+    <p>Hello WorldWorldWorldWorldWorldWorldWorldWorldWorldWorldWorldWorldWorldWorldWorldWorldWorldWorldWorld </p>
+
 </body>
 
 </html>

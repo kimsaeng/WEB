@@ -1,0 +1,21 @@
+.display1 {
+    display: none;
+    background-color: aqua;
+}
+
+.display2 {
+    display: block;
+    padding: 10px;
+    background-color: aqua;
+}
+
+.display3 {
+    display: inline;
+    background-color: yellowgreen;
+}
+
+.display4 {
+    display: inline-block;
+    margin-left: 500;
+    background-color: hotpink;
+}

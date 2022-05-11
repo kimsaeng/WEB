@@ -1,0 +1,12 @@
+.div1 {
+    border: 1px#000000 solid;
+    border-top-style: dashed;
+    border-right-style: dotted;
+    border-bottom-style: double;
+    border-left-style: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    background-color: plum;
+}
+
+    

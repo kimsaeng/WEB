@@ -1,0 +1,12 @@
+.div1{
+    background-color: burlywood;
+    margin: 30px 40px 20px 70px;
+}
+.div2{
+    background-color: aquamarine;
+    margin: 30px 50px;
+}
+.div3 {
+    background-color: aqua;
+    margin: all;
+}
