@@ -1,0 +1,19 @@
+.header {
+    background-color: rgb(55, 82, 151);
+    color: white;
+    padding: 10px;
+}
+
+.content {
+    padding: 10px;
+    background-color: rgb(227, 227, 231);
+}
+
+.item {
+    background-color: white;
+    margin: 10px;
+}
+
+.container {
+    width: 250px;
+}

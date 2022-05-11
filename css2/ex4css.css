@@ -1,0 +1,64 @@
+body {
+    height: 100vh;
+    background-image: url('https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* .p1 {
+    font-size: larger;
+    color: white;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -110px;
+    margin-top: -150px;
+
+} */
+.span01,
+.span02,
+.span03,
+.span04 {
+    position: relative;
+    left: 85%;
+    color: white;
+}
+
+.span1 {
+    color: red;
+}
+
+.span05 {
+    padding: 3px;
+    border: 3px solid;
+    margin-left: 80px;
+}
+
+.div1 {
+    position: relative;
+    color: white;
+    background-color: rgb(72, 68, 68);
+    margin-top: -8px;
+    margin-left: -8px;
+    margin-right: -8px;
+    padding: 10px;
+}
+
+.container {
+    font-size: larger;
+    color: white;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -110px;
+    margin-top: -150px;
+}
+
+a:link {
+    color: white;
+    text-decoration-line: none;
+}

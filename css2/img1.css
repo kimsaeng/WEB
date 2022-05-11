@@ -1,0 +1,7 @@
+.img1 {
+    filter: blur(1px) brightness(100%) contrast(90%);
+}
+
+.img2 {
+    filter: grayscale(50%) invert(90%) opacity(30%);
+}
