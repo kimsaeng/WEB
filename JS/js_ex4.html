@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <span id="html" onclick="color1()">&nbsphtml&nbsp</span>
+    <span id="css" onclick="color2()">&nbspcss&nbsp</span>
+    <span id="javascript" onclick="color3()">&nbspjavascript&nbsp</span>
+    </div>
+
+    <style>
+        #html {
+            color: white;
+            background-color: gray;
+        }
+        #css {
+            color: white;
+            background-color: gray;
+        }
+        #javascript {
+            color: white;
+            background-color: gray;
+        }
+
+        body {
+            text-align: center;
+            font-size: xx-large;
+        }
+    </style>
+
+    <script>
+        function color1() {
+            document.getElementById('html').style.color="gray";
+            document.getElementById('css').style.color="white";
+            document.getElementById('javascript').style.color="white";
+            document.getElementById('html').style.backgroundColor="white";
+            document.getElementById('css').style.backgroundColor="gray";
+            document.getElementById('javascript').style.backgroundColor="gray";
+            document.getElementById('html').style.border = "1px solid black";
+            document.getElementById('css').style.border = "";
+            document.getElementById('javascript').style.border = "";
+        }
+        function color2() {
+            document.getElementById('html').style.color="white";
+            document.getElementById('css').style.color="gray";
+            document.getElementById('javascript').style.color="white";
+            document.getElementById('html').style.backgroundColor="gray";
+            document.getElementById('css').style.backgroundColor="white";
+            document.getElementById('javascript').style.backgroundColor="gray";
+            document.getElementById('html').style.border = "";
+            document.getElementById('css').style.border = "1px solid black";
+            document.getElementById('javascript').style.border = "";
+        }
+        function color3() {
+            document.getElementById('html').style.color="white";
+            document.getElementById('css').style.color="white";
+            document.getElementById('javascript').style.color="gray";
+            document.getElementById('html').style.backgroundColor="gray";
+            document.getElementById('css').style.backgroundColor="gray";
+            document.getElementById('javascript').style.backgroundColor="white";
+            document.getElementById('html').style.border = "";
+            document.getElementById('css').style.border = "";
+            document.getElementById('javascript').style.border = "1px solid black";
+        }
+    </script>
+
+</body>
+</html>

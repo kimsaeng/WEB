@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+            text-align: center;
+        }
+        #div1 {
+            color: black;
+        }
+    </style>
+
+    <div id="div1"></div>
+    <br><br>
+    <button onclick="colors1()">빨강</button>
+    <button onclick="colors2()">파랑</button>
+    <button onclick="colors3()">초록</button>
+
+    <script>
+        var text = prompt('입력');
+        if(text == '') {
+            alert('텍스트값을 입력해 주세요');
+        } else {
+            document.getElementById("div1").innerHTML = text;
+        }
+    </script>
+
+    <script>
+        function colors1() {
+            alert('빨간색으로 바뀝니다');
+            document.getElementById('div1').style.color = "red";
+        }
+        function colors2() {
+            alert('파랑색으로 바뀝니다');
+            document.getElementById('div1').style.color = "blue";
+        }
+        function colors3() {
+            alert('초록색으로 바뀝니다');
+            document.getElementById('div1').style.color = "green";
+        }
+
+    </script>
+
+</body>
+</html>
