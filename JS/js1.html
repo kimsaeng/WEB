@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="my_script.js"></script>
+</head>
+
+<body>
+    <script>
+        //변수 선언
+        var i = 10;
+        var name = "오준석";
+        
+        //자바 스타일의 문자열 병합
+        var result = name + '은' + i + '살입니다';
+        result = `${name}은${i}살입니다`;
+
+
+        function myAlert() {
+            alert('경고');
+        }
+    </script>
+
+    <button onclick="javascript:alert('경고')">버튼</button>
+    <button onclick="myAlert()">버튼</button>
+    <button ondblclick="showMyName()">버튼</button>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .big-text {
+            font-size: xx-large;
+        }
+
+        .small-text {
+            font-size: small;
+        }
+    </style>
+
+    <script>
+        function addTAG() {
+            document.write('<h1>Hello World</h1>');
+        }
+
+        function getTitle() {
+            let title = document.getElementById('title');
+            console.log(title);
+        }
+
+        // function getItems() {
+        //     let items = document.getElementsByClassName('item');
+
+        //     //첫번째 아이템
+        //     let firstItem = items[0];
+        //     //첫번째 아이템의 내용얻기
+        //     // firstItem.
+        // }
+
+        function changeClassName() {
+            let target = document.getElementById('target');
+
+
+            if (isSmallText) {
+                target.className = 'big-text';
+                isSmallText = false;
+            } else {
+                target.className = 'small-text'
+                isSmallText = true;
+            }
+        }
+
+
+        function changeHtml() {
+            let pic = document.getElementById('pic');
+            pic.innerHTML = "<h1>뿅</h1>";
+            pic.textContent= "<h1>뿅</h1>"
+        }
+
+    </script>
+
+    <img src="https://dimg.donga.com/wps/NEWS/IMAGE/2022/05/12/113349348.2.jpg" alt="아이유" width="200" onclick="changeHtml()">
+
+
+
+
+    <button onclick="addTAG()">Tag 추가</button>
+    <button onclick="getTitle()">Title 얻기</button>
+
+    <h1 id="title">Hello World</h1>
+
+    <!-- ul>li*4 -->
+    <ul>
+        <li class="item">1</li>
+        <li class="item">2</li>
+        <li class="item">3</li>
+        <li class="item">4</li>
+    </ul>
+
+    <div id="target" class="small-text">Hello</div>
+</body>
+
+</html>
