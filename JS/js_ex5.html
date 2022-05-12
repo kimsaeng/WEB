@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div>
-    <span id="html" onmouseover="color1()">&nbsphtml&nbsp</span>
-    <span id="css" onmouseover="color2()">&nbspcss&nbsp</span>
-    <span id="javascript" onmouseover="color3()">&nbspjavascript&nbsp</span>
+        <span id="html" onmouseover="color1()">&nbsphtml&nbsp</span>
+        <span id="css" onmouseover="color2()">&nbspcss&nbsp</span>
+        <span id="javascript" onmouseover="color3()">&nbspjavascript&nbsp</span>
     </div>
 
     <style>
-        #html {
+        span {
             color: white;
             background-color: gray;
         }
-        #css {
-            color: white;
-            background-color: gray;
+
+        .clickon {
+            color: gray;
+            background-color: white;
+            border: 1px solid black;
         }
-        #javascript {
+
+        .clickoff {
             color: white;
             background-color: gray;
         }
@@ -35,39 +40,22 @@
 
     <script>
         function color1() {
-            document.getElementById('html').style.color="gray";
-            document.getElementById('css').style.color="white";
-            document.getElementById('javascript').style.color="white";
-            document.getElementById('html').style.backgroundColor="white";
-            document.getElementById('css').style.backgroundColor="gray";
-            document.getElementById('javascript').style.backgroundColor="gray";
-            document.getElementById('html').style.border = "1px solid black";
-            document.getElementById('css').style.border = "";
-            document.getElementById('javascript').style.border = "";
+            document.getElementById('html').className = 'clickon';
+            document.getElementById('css').className = 'clickoff';
+            document.getElementById('javascript').className = "clickoff";
         }
         function color2() {
-            document.getElementById('html').style.color="white";
-            document.getElementById('css').style.color="gray";
-            document.getElementById('javascript').style.color="white";
-            document.getElementById('html').style.backgroundColor="gray";
-            document.getElementById('css').style.backgroundColor="white";
-            document.getElementById('javascript').style.backgroundColor="gray";
-            document.getElementById('html').style.border = "";
-            document.getElementById('css').style.border = "1px solid black";
-            document.getElementById('javascript').style.border = "";
+            document.getElementById('html').className = 'clickoff';
+            document.getElementById('css').className = 'clickon';
+            document.getElementById('javascript').className = "clickoff";
         }
         function color3() {
-            document.getElementById('html').style.color="white";
-            document.getElementById('css').style.color="white";
-            document.getElementById('javascript').style.color="gray";
-            document.getElementById('html').style.backgroundColor="gray";
-            document.getElementById('css').style.backgroundColor="gray";
-            document.getElementById('javascript').style.backgroundColor="white";
-            document.getElementById('html').style.border = "";
-            document.getElementById('css').style.border = "";
-            document.getElementById('javascript').style.border = "1px solid black";
+            document.getElementById('html').className = 'clickoff';
+            document.getElementById('css').className = 'clickoff';
+            document.getElementById('javascript').className = "clickon";
         }
     </script>
 
 </body>
+
 </html>
