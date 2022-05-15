@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <style>
+        table,th,td {
+            border: 1px solid black;
+            border-collapse : collapse;
+            text-align: center;
+        }
+    
+    </style>
+    <form action=""></form>
+        <table>
+            <tr>
+            <th> <input type="checkbox" name="check_all" value="">
+                <label for="checkbox1"> 확인</label><br></th>
+            <th>제목</th>
+            <th>글쓴시간</th>
+            </tr>
+            <tr>
+            <td><input type="checkbox" name="checkboxes" value="111111">
+                <label for="checkbox2"> </label><br></td>
+            <td class="text">111111</td>
+            <td>11:11:00</td>
+            </tr>
+            <tr>
+            <td><input type="checkbox" name="checkboxes" value="22222">
+                <label for="checkbox3"> </label><br></td>
+            <td class="text">22222</td>
+            <td>11:11:00</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="checkboxes" value="ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ">
+                    <label for="checkbox4"> </label><br></td>
+                <td class="text">&nbsp ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ &nbsp</td>
+                <td>&nbsp 11:11:00 &nbsp</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="checkboxes" value="ㅁㄴㅇㅁㄴㅇ3333">
+                    <label for="checkbox5"> </label><br></td>
+                <td class="text">ㅁㄴㅇㅁㄴㅇ3333</td>
+                <td>11:11:00</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="checkboxes" value="ㅁ44444ㅇㅁㄴㅇㅁㄴㅇ">
+                    <label for="checkbox6"> </label><br></td>
+                <td class="text">ㅁ44444ㅇㅁㄴㅇㅁㄴㅇ</td>
+                <td>11:11:00</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="checkboxes" value="ㅁㄴ55555ㄴㅇ">
+                    <label for="checkbox7"> </label><br></td>
+                <td class="text">ㅁㄴ55555ㄴㅇ</td>
+                <td>11:11:00</td>
+            </tr>
+        </table>
+    </form>
+      <br>
+      <button id="log">로그</button>
+
+      <script>
+        $(() => {
+            $("input:checkbox[name=check_all]").change(function() {
+                if(this.checked = true) {
+                    $("input:checkbox[name=checkboxes]").prop("checked",true);
+                } else {
+                    $("input:checkbox[name=checkboxes]").prop("checked",false);
+                }
+            });
+
+            $("input:checkbox[name=checkboxes]").change(function () {
+                if (!$("input:checkbox[name=mycheck]").is(":checked")) {
+                    $("input:checkbox[name=check_all]").prop("checked", false);
+                }
+            });
+
+            $("#log").click(() => {
+                $("input:checkbox[name=checkboxes]").each(function () {
+                    if (this.checked) {
+                        let texts = $("input:checkbox[name=checkboxes]").index(this);
+                        console.log(`${$(".text")[texts].textContent}\n`);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

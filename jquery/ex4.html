@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <style>
+        .mario {
+            position: absolute;
+            top: 200px;
+            left: 200px;
+            width: 100px;
+        }
+
+        .bomber {
+            position: absolute;
+            top: 300px;
+            left: 600px;
+            width: 80px;
+            animation-name: example;
+            animation-iteration-count: 5;
+            animation-duration: 3s;
+        }
+
+
+        @keyframes example {
+            0% {
+                left: 800px;
+                top: 300px;
+            }
+
+            100% {
+                left: 0px;
+                top: 300px;
+            }
+        }
+    </style>
+    <script>
+        $(document).keydown(function (e) {
+            if (e.keyCode == 32) {  //왼쪽
+                $(".mario").animate({ 'top': '-=100px' });
+                $(".mario").animate({ 'top': '+=100px' });
+            };
+        });
+
+
+        $(".bomber").animate({ 'left': '-=50px' });
+
+
+    </script>
+    <div class="wrap">
+        <img src="https://images.mir.pe/file/fc485e7914aa3fa24cacf5c865d9da76205a98d5f338bf6f20a0c1d754f41de8042b73e021668378fd147e85bc060dfa"
+            class="mario">
+    </div>
+    <div id="wrap2">
+        <img src="https://images.mir.pe/file/1984240b7dd98f9d9c1bcc48e7ee2bbd08d43473d6e55e593eaf58194a21257b"
+            class="bomber">
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <style>
+        body {
+            text-align: center;
+        }
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+        .green {
+            color: green;
+        }
+    </style>
+
+    <script>
+    $(() => { 
+        var text = prompt('입력');
+
+        if(text == '') {
+            alert('텍스트값을 입력해 주세요');
+        } else {
+            $('#text').append(text);
+        }
+
+        $('#red').click(() => {
+            alert("빨간색으로 변경됩니다.");
+            $('#text').attr("class","red");         
+        })
+
+        $('#blue').click(() => {
+            alert("파란색으로 변경됩니다.");
+            $('#text').attr("class","blue");
+        })
+
+        $('#green').click(() => {
+            alert("초록색으로 변경됩니다.");
+            $('#text').attr("class","green");
+        })
+
+    });
+    </script>
+
+        <h1 id="text"></h1>
+        <div id="div1">
+            <button id="red">빨강</button>
+            <button id="blue">파랑</button>
+            <button id="green">초록</button>
+        </div>
+
+</body>
+</html>

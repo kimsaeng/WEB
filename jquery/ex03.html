@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+</head>
+
+<body>
+    <style>
+        #header {
+        background-color: rgb(55, 82, 151);
+        color: white;
+        padding: 10px;
+        }
+
+        #content {
+            padding: 10px;
+            background-color: rgb(227, 227, 231);
+        }
+
+        #container {
+            width: 250px;
+        }
+        
+        #article {
+            background-color: rgb(55, 82, 151);
+            color: white;
+            padding: 10px;
+        }
+
+    </style>
+
+    <script>
+        $(() => {
+            $("#article").click(function() {
+                let text = prompt("기사 입력");
+                $("#content").append(text+'\n');
+            })
+        })
+    </script>
+
+    </script>
+
+    <div id="container">
+    <div id="header">
+      최도근님, 안녕하세요?
+    </div>
+    <div id="content">
+      기사 입력하기
+      <br><br>
+
+    </div>
+    <br><br>
+    <span id="article">
+        <b>등록하기</b>
+    </span>
+  </div>
+</body>
+
+</html>
