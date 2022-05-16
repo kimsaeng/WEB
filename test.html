@@ -5,26 +5,83 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>jquery9</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
+    <style>
+        body {
+            margin: 0px;
+        }
 
+        div {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            display: inline-block;
+            border: 1px solid black;
+            width: 600px;
+            height: 400px;
+            background-image: url(https://www.nintendo.co.kr/3DS/software/balj/img/top/bg_sky_br.jpg);
+
+        }
+
+        #kirby {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            bottom: 10px;
+            left: 50px;
+
+        }
+
+        #missile {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            bottom: 10px;
+            right: 50px;
+
+
+        }
+
+        #title {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            left: 300px;
+
+        }
+    </style>
     <script>
-        //animation
-        $('')
+        $(function () {
 
+            $(document).keydown(function (event) {
+                if (event.keyCode == '32') {
+                    $('#kirby').animate({ top: '-=200px' }, 'fast');
+                    setTimeout(() => {
+                        $('#kirby').animate({ top: '+=200px' }, 'slow');
+                    }, 500)
+                }
+            })
+            setInterval(() => {
+                moveMissile();
+            }, 3000);
+        })
+        function moveMissile() {
+            $('#missile').animate({ left: '-=450px' }, 'slow');
+            $('#missile').animate({ left: '+=450px' }, 'slow');
+        }
     </script>
-    <form action="">
-        <input type="checkbox" name="mycheck" id="" checked>
-        <input type="checkbox" name="mycheck" id="">
-        <input type="checkbox" name="mycheck" id="">
-        <input type="checkbox" name="mycheck" id="">
-        <input type="checkbox" name="mycheck" id="">
-        <input type="button" id="all_check_button" value="전체 체크">
-        <input type="button" id="check_number_button" value="체크 확인">
-        <span id="result"></span>
-    </form>
+    <img id="title" src="http://vignette1.wikia.nocookie.net/the-video-game/images/c/ce/KirbyLogo.png" alt="타이틀">
+    <div><img id="kirby"
+            src="https://ww.namu.la/s/5c85522c4d11baa71348cdc8a6d18d8b572d795ee125a1003628abc49af5620402f77605bcf4db73230e105e605524852a9e5982cddfbd38563484434c4327b519b0a668eeaba0e648e7fff4b64a4298"
+            alt="커비">
+        <img id="missile"
+            src="https://w.namu.la/s/0df082946345a758c734321dfca97be3eac01b94f198a6baa853783d56246da2771d7b06575db4b744ba7802b683d7bbd829e71d3c99ba78102500e7b8d30903dd653c80776576f4cbb55bb07612a0ce"
+            alt="미사일">
+    </div>
 
 </body>
 
