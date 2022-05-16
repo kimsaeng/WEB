@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <style>
+        #container {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            left: 50px;
+            top: 50px;
+            border: 1px black solid;
+        }
+
+        #mario {
+            position: absolute;
+            width: 130px;
+            bottom: 70px;
+            left: 20px;
+        }
+
+        #killer {
+            position: absolute;
+            width: 50px;
+            bottom: 20px;
+            right: -100px;
+            bottom: 80px;
+        }
+
+        #background {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            left: 50px;
+            top: 50px;
+            border: 1px black solid;
+        }
+    </style>
+
+    <img id="background" src="../assets/background.jpg" alt="background">
+    <div id="container">
+        <img id="mario" src="../assets/mario.png" alt="mario">
+        <img id="killer" src="../assets/gumba.png" alt="killer">
+        <div id="score">SCORE : 0</div>
+    </div>
+
+    
+    <script>
+        const WIDTH = 600;
+        const HEIGHT = 600;
+
+        let mario = $("#mario");
+        let killer = $("#killer");
+
+        let isJumping = false;
+        let score = 0;
+        
+        function jump() {
+            if (isJumping) {
+                return;
+            }
+
+            isJumping = true;
+            mario.animate({ bottom: "+=100px" }, 500)
+                .animate({ bottom: "-=100px" }, 500, function () {
+                    isJumping = false;
+                });
+        }
+
+        function moveKiller() {
+            killer.animate({ right: "120%" }, 3000, function () {
+                killer.css({ right: "-10px" });
+            });
+        }
+
+        $("body").keydown(function (event) {
+            // 마리오 현재 좌표 정보
+            let left = parseInt(mario.css("left").replace("px", ""));
+            let top = parseInt(mario.css("top").replace("px", ""));
+            let right = left + 100;
+            let bottom = top + 100;
+            let move = 25;  // 이동할 픽셀
+
+            switch (event.key) {
+                case " ":
+                    jump();
+                    break;
+            }
+        });
+
+        
+
+
+        // 게임 화면 그리기 30frame
+        setInterval(function () {
+            // 1초에 30번 그리기
+            moveKiller();
+        }, 1000 / 30);
+
+    </script>
+
+<script>
+    function move() {
+    const element = document.getElementById("myBar");   
+    let width = 0;
+    const id = setInterval(frame, 10);
+    function frame() {
+        if (width == 100) {
+        clearInterval(id);
+        } else {
+        width++; 
+        element.style.width = width + '%'; 
+        }
+    }
+    }
+</script>
+</body>
+
+</html>
