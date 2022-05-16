@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <style>
+        #container {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            border: 1px solid black;
+            left: 50px;
+            top: 50px;
+        }
+
+        #yoshi {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <div id="container">
+        <img id="yoshi" src="../assets/yoshi.png" alt="yoshi">
+    </div>
+    <script>
+        const WIDTH = 600;
+        const HEIGHT = 600;
+        let yoshi = $('#yoshi');
+
+        $('body').keydown(function (event) {
+
+            let left = parseInt(yoshi.css("left").replace("px",""));
+            let right = left + 100;
+            let top = parseInt(yoshi.css("top").replace("px",""));
+            let bottom = top + 100;
+            let move = 25; // 이동할 픽셀
+            console.log(left);
+
+            console.log(event.key);
+            switch (event.key) {
+                case "ArrowLeft":
+                    if(left - move >= 0)
+                    yoshi.css({ left: '-=25px' });
+                    break;
+                case "ArrowRight":
+                    if(right + move <= WIDTH)
+                    yoshi.css({ left: '+=25px' });
+                    break;
+                case "ArrowUp":
+                    if(top - move >= 0)
+                    yoshi.css({ top: '-=25px' });
+                    break;
+                case "ArrowDown":
+                    if(bottom + move <= HEIGHT)
+                    yoshi.css({ top: '+=25px' });
+                    break;
+
+            }
+        });
+    </script>
+</body>
+</html>
