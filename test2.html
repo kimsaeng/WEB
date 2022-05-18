@@ -1,215 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX5 - 영화 정보 상세</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
-
 <body>
-  <style>
-    #container {
-      position: absolute;
-      width: 100%;
-      height: 600px;
-      top: 50px;
-      border: 1px black solid;
-    }
+    <script>
+        $(function() {
+                    // javascript get parameter ==> 검색하여 방법찾기
+                    const queryString = window.location.search;
+                    const parameters = new URLSearchParams(queryString);
+                    const id = parameters.get('id');
 
-    html,
-    body {
-      margin: 0;
-    }
+                    // 받은 request에 따른 응답 찾을 data
+                    fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR&page=1`)
+                        .then(response => response.json()) 
+                        .then(jsonArray => {
+                            let results = jsonArray.results; // results data 배열 전체 가져오기
+                            let imgLoadURL = "https://image.tmdb.org/t/p/w500"; // img 파일 로드 위한 주소
+                            // results array에서, request 시 전달 받은 id값과 일치하는 index 찾기 
+                            let index = results.findIndex((element) => id == element.id); 
+                            // 찾은 index로 해당하는 영화의 정보 확정하기
+                            let data = results[index];
+                        
 
-    body {
-      overflow-x: hidden;
-    }
+                             // title = 제목, poster_path = 포스터 url
+                             // release_date = 개봉일, vote_count = 투표 수
+                             // vote_average = 평점, overview = 줄거리
+                             // #movieList에 results 데이터 중 필요한 정보 추가하기 (table 형식)
+                             $('#movieDetail').append(` <table id="oneMovie">
+                                                            <tr>
+                                                                <td id="title" colspan="2">${data.title}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td id="poster"> <img id="poster_img" src="${imgLoadURL + data.poster_path}" alt=""> </td>
+                                                                <td id="dateAndVote"> 
+                                                                    <div id="releasedData">개봉일 : ${data.release_date} </div> <br>
+                                                                     <div id="voteCount"> 🎯 ${data.vote_count}</div> 
+                                                                     <div id="voteAverage"> ♥ ${data.vote_average} </div>
+                                                                </td>
+                                                            </tr>
+    
+                                                            <tr>
+                                                                <td id="overview" colspan="2">${data.overview}</td>
+                                                            </tr>
+                                                        </table>`);
 
-    #mario {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      bottom: 80px;
-      left: 20px;
-    }
+                        });
 
-    #mariodead {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      bottom: 80px;
-      left: 20px;
-    }
+                })
+    </script>
+    * Detailed Information *
+    <br><br>
+    <div id="movieDetail"></div>
 
-    #killer {
-      position: absolute;
-      width: 50px;
-      bottom: 80px;
-      right: -100px;
-    }
-
-    #background {
-      position: absolute;
-      width: 200%;
-      height: 100%;
-      background: url("../assets/background.jpg");
-      background-size: contain;
-      animation-name: bg-slide;
-      animation-duration: 20s;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-    }
-
-    #score {
-      position: absolute;
-      color: white;
-      font-size: 2rem;
-      left: 20px;
-      top: 20px;
-    }
-
-    @keyframes bg-slide {
-      from {
-        left: 0px;
-      }
-
-      to {
-        left: -100%;
-      }
-    }
-  </style>
-
-  <div id="container">
-    <div id="background"></div>
-    <img id="mario" src="../assets/mario.png" alt="mario">
-    <img id="mariodead" src="../assets/cupa.png" alt="">
-    <img id="killer" src="../assets/gumba.png" alt="killer">
-    <div id="score">SCORE : 0</div>
-  </div>
-  <div id="gameover">
-    게임오버
-    <button class="game_start_button">게임 스타트</button>
-  </div>
-  <div id="start">
-    <button class="game_start_button">게임 시작</button>
-  </div>
-
-  <script>
-    const WIDTH = 1200;
-    const HEIGHT = 600;
-
-    let mario = $("#mario");
-    let killer = $("#killer");
-
-    // 상태
-    let isJumping = false;
-    let isGameOver = false;
-    let score = 0;
-
-    function jump() {
-      if (isJumping || isGameOver) {
-        return;
-      }
-
-      isJumping = true;
-      mario.animate({ bottom: "+=100px" }, 500)
-        .animate({ bottom: "-=100px" }, 500, function () {
-          isJumping = false;
-        });
-    }
-
-    function moveKiller() {
-      killer.animate({ right: "120%" }, 3000, function () {
-        killer.css({ right: "-100px" });
-
-        if (isGameOver == false) {
-          setTimeout(moveKiller, 1000);
-          score += 100;
-          $("#score").text(`SCORE : ${score}`);
+    <style>
+        #oneMovie {
+            width: 60%;
+            padding: 2%;
+            border: 5px rgb(35, 129, 202) dashed;
+            box-shadow: 0 4px 8px 0 rgb(16, 64, 101);
+            border-radius: 5%;
+            background-color: rgb(201, 247, 247);
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
-      });
-    }
 
-    function marioDead() {
-      let killerLeft = parseInt(killer.css("left").replace("px", ""));
-      let marioLeft = parseInt(mario.css("left").replace("px", ""));
-      let marioRight = marioLeft + 100;
-
-      if (isJumping == false
-        && marioRight > killerLeft
-        && killerLeft > marioLeft
-      ) {
-        isGameOver = true;
-      }
-    }
-
-    function gameOver() {
-      isGameOver = true;
-      killer.stop();
-
-      // 게임오버 화면 보여주고
-      $("#gameover").show();
-      $("#start").hide();
-      $("#container").hide;
-      $("#mariodead").show()
-    }
-
-    function gameStart() {
-      $("#gameover").hide();
-      $("#start").show();
-      $("#container").show;
-      $("#mariodead").hide();
-      isGameOver = false;
-
-      killer.css({ right: "-100px" });
-    }
-
-    $("body").keydown(function (event) {
-      // 마리오 현재 좌표 정보
-      let left = parseInt(mario.css("left").replace("px", ""));
-      let top = parseInt(mario.css("top").replace("px", ""));
-      let right = left + 100;
-      let bottom = top + 100;
-      let move = 25;  // 이동할 픽셀
-
-      switch (event.key) {
-        case " ":
-          jump();
-          break;
-      }
-    });
-
-    $(".game_start_button").click(function () {
-      gameStart();
-    });
-
-    function game() {
-      setTimeout(moveKiller, 1000);
-
-      // 게임 화면 그리기 30frame
-      setInterval(function () {
-        if (isGameOver) {
-          gameOver();
-        } else {
-          // 1초에 30번 그리기
-
-          // 마리오 사망 체크
-          marioDead();
+        #title {
+            padding-bottom: 2%;
+            text-align: center;
+            font-size: 50px;
+            color: rgb(88, 88, 222);
+            border-bottom: 2px rgb(35, 129, 202) solid;
         }
-      }, 1000 / 30);
-    }
 
-    $(function () {
-      gameStart();
+        #poster {
+            padding: 2%;
+            width:60%;
+        }
 
-      $(".game_start_button").click(function () {
-        game();
-      });
-    });
-  </script>
+        #poster_img {
+            width: 100%;
+        }
+
+        #dateAndVote {
+            display: inline;
+        }
+
+        #releasedData {
+            position: relative;
+            top: 0;
+            font-size: 20pt;
+        }
+        #voteCount {
+            display: inline-block;
+            padding: 2%;
+            width: 40%;
+            position: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5%;
+            background-color: rgb(88, 88, 222);
+            box-shadow: 0 4px 8px 0 rgb(34, 34, 85);
+            text-align: center;
+            color: white;
+            font-size: 20pt;
+        }
+        #voteAverage {
+            display: inline-block;
+            padding: 2%;
+            width: 40%;
+            position: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5%;
+            background-color: rgb(88, 88, 222);
+            box-shadow: 0 4px 8px 0 rgb(34, 34, 85);
+            text-align: center;
+            color: white;
+            font-size: 20pt;
+        }
+
+        #overview {
+            border-top: 2px rgb(35, 129, 202) solid;
+            padding-top: 2%;            
+            font-size: 15pt;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+    </style>
+
 </body>
-
 </html>

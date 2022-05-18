@@ -15,37 +15,57 @@
       loadData();
     });
 
+    function moveDetailPage(movieId) {
+      window.location.href = `exam5_detail.html?id=${movieId}`;
+    }
 
     function loadData() {
       fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR&page=1')
         .then(response => response.json())
         .then(jsonArray => {
+          let movies = jsonArray.results;
+
           let items = $("#items");
-          jsonArray.results.forEach((data, i) => {
-            items.append(`<span class="container">
-      <img id="photo_image" src=" ${'https://image.tmdb.org/t/p/w500' + data.poster_path}">
-      <h4 id="text"><b>${data.title}</b></h4>
-    </span>`);
+          movies.forEach((movie, index) => {
+            items.append(`<div class="card" onclick="moveDetailPage(${movie.id})">
+    <div class="container">
+      <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="Avatar" style="width:100%">
+      <h4><b>${movie.title}</b></h4>
+      <p>${movie.title}</p>
+    </div>
+  </div>`);
           });
         });
     }
   </script>
 
-  <span id="items"></span>
-
   <style>
-      body {
-          background-color: rgb(104,124,135);
-      }
-      #container {
-        position: relative;
-        width: 400px;
-      }
-      #text {
-          position: relative;
-          color: white;
-      }
+    #items {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: 400px;
+      /* Add shadows to create the "card" effect */
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      margin: 16px;
+      border-radius: 5px;
+    }
+
+    /* On mouse-over, add a deeper shadow */
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    /* Add some padding inside the card container */
+    .container {
+      padding: 2px 16px;
+    }
   </style>
+
+  <div id="items"></div>
 </body>
 
 </html>
